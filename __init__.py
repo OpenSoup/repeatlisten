@@ -103,11 +103,14 @@ class RepeatListen:
                     funk_class.close()  # 调用用户提供的对应函数
                     break
                 funk_class.recv(message)  # 调用用户提供的对应函数
-            except BlockingIOError:
+            except BlockingIOError:  # 在没有回传信息时会触发此错误
                 ...
-            except BaseException as BE:
+            except BaseException as BE:  # 未知错误处理，用户提供的函数可能会触发此错误
                 if self.log_error:
-                    print(repr(BE))
+                    print(f"Error when recv: {repr(BE)}")
+                funk_class.close()
+                break
+
             if time() >= recv_time+self.time_out:
                 funk_class.timeout()  # 调用用户提供的对应函数
                 break
