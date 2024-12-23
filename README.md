@@ -1,7 +1,7 @@
 以事件的方式管理tcp的链接与接收。  
 如果您的设备已安装pip,您可以打开命令行，并使用以下代码进行安装：
 ```
-pip install --trusted-host 114.115.172.126 -i http://114.115.172.126:3141/simple/ repeatlisten
+pip install --trusted-host osoup.top -i http://osoup.top/simple repeatlisten
 ```
 以下是一些演示代码：
 ```python
